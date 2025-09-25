@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Olifia</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+
+    /* MODE */
+    body.light { background: pink; color: #000; }
+    body.dark { background: #111; color: #fff; }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      scroll-snap-align: start;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1, h2, h3 { margin: 15px 0; }
+    p { margin: 8px 0; }
+    ul { margin: 15px 0; padding-left: 20px; text-align: left; }
+    li { margin: 6px 0; }
+
+    /* NAV DOTS */
+    .nav-dots {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+    .nav-dots a {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: gray;
+      display: block;
+      transition: 0.3s;
+    }
+    .nav-dots a:hover { background: #f06292; }
+
+    /* CONTROLS */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 1000;
+    }
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px 0;
+      border: 3px solid #f06292;
+    }
+
+    /* BUBBLE */
+    .bubble {
+      max-width: 320px;
+      background: #f06292;
+      color: white;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 15px auto;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #f06292 transparent transparent transparent;
+    }
+
+    /* BLOG FORM */
+    .blog-form {
+      margin-top: 25px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .blog-form input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      min-width: 220px;
+    }
+    .blog-form button {
+      background: #f06292;
+      color: white;
+    }
+
+    @media (max-width:768px){
+      img.profile {width: 120px; height: 120px;}
+      section { padding: 30px 15px; }
+    }
+  </style>
+</head>
+<body class="light">
+
+  <!-- Kontrol -->
+  <div class="controls">
+    <button onclick="toggleTheme()">🌙/☀️</button>
+    <button onclick="toggleLang()">ID/EN</button>
+  </div>
+
+  <!-- NAV DOTS -->
+  <div class="nav-dots">
+    <a href="#page1"></a>
+    <a href="#page2"></a>
+    <a href="#page3"></a>
+    <a href="#page4"></a>
+    <a href="#page5"></a>
+    <a href="#page6"></a>
+  </div>
+
+  <!-- PAGE 1 -->
+  <section id="page1">
+    <img src="image/olifia.jpeg" alt="Foto Olifia" class="profile">
+    <h1 class="lang" data-id="nama">Olifia Mathelda Helvena R</h1>
+    <p class="lang" data-id="umur">Umur: 16 tahun</p>
+    <p class="lang" data-id="ttl">ttl: Balikpapan, 26 Oktober 2008</p>
+    <p class="lang" data-id="jk">jenis kelamin: Perempuan</p>
+    <p class="lang" data-id="alamat">Alamat :Perumahan Bukit Batakan Permai</p>
+    <p class="lang" data-id="agama">Agama: Katholik</p>
+    <p class="lang" data-id="hobi">Hobi: Memasak</p>
+    <p class="lang" data-id="sekolah">Sekolah: SMKN 3 Balikpapan, XII TKJ 2</p>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section id="page2">
+    <h2 class="lang" data-id="kontak">Informasi Kontak</h2>
+    <p>WhatsApp: 082344896131</p>
+    <p><a href="https://www.instagram.com/lilipooo08" target="_blank">Instagram</a></p>
+    <p><a href="https://www.tiktok.com/@suprisebch" target="_blank">TikTok</a></p>
+    <p>Email: olifiatekaje@gmail.com</p>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section id="page3">
+    <h2 class="lang" data-id="profil">Informasi Profesional</h2>
+    <img src="image/smkn3.jpeg" alt="Foto Sekolah" class="profile">
+    <p class="lang" data-id="ringkasan">Sekarang bersekolah di SMKN 3 Balikpapan, jurusan Teknik Komputer Jaringan.</p>
+    <h3>Riwayat Pendidikan:</h3>
+    <ul>
+      <li>SDN 006 Balikpapan Selatan</li>
+      <li>SMPK Yos Sudarso</li>
+      <li>SMKN 3 Balikpapan</li>
+    </ul>
+    <h3>Pengalaman Magang:</h3>
+    <p>United Tractors Tbk</p>
+    <h3>Keahlian:</h3>
+    <p>Memasak berbagai masakan dan mencoba hal baru</p>
+  </section>
+
+  <!-- PAGE 4: Blog -->
+  <section id="page4">
+    <h2 class="lang" data-id="blog">Blog / Penambahan Nilai</h2>
+    <div id="blog-list">
+      <div class="bubble">Olifia adalah siswi rajin dengan semangat tinggi!</div>
+      <div class="bubble">Terlihat sangat kreatif dalam belajar hal baru.</div>
+      <div class="bubble">Memiliki bakat di bidang memasak dan IT.</div>
+    </div>
+    <form class="blog-form" onsubmit="addBlog(event)">
+      <input type="text" id="blog-input" placeholder="Tulis tambahan nilai di sini..." required>
+      <button type="submit">Tambah</button>
+    </form>
+  </section>
+
+  <!-- PAGE 5 -->
+  <section id="page5">
+    <h2 class="lang" data-id="terimakasih">Terima kasih!</h2>
+    <p class="lang" data-id="pesan">Terimakasih telah melihat dan memberikan nilai untuk web pertama saya.</p>
+  </section>
+
+  <!-- PAGE 6 -->
+  <section id="page6">
+    <p>&copy; 2025 Olifia Mathelda Helvena R</p>
+  </section>
+
+  <script>
+    // THEME
+    function toggleTheme(){
+      document.body.classList.toggle("dark");
+      document.body.classList.toggle("light");
+    }
+
+    // TRANSLATE
+    const translations = {
+      en: {
+        nama: "Olifia Mathelda Helvena R",
+        umur: "Age : 16 years",
+        ttl: "Place and date of birth: Balikpapan, October 26, 2008",
+        jk: "Gender: Female",
+        alamat: "Addres: Bukit Batakan Permai Housing",
+        agama: "Religion: Catholic",
+        hobi: "Hobby: Cooking",
+        sekolah: "School: SMKN 3 Balikpapan, XII TKJ 2",
+        kontak: "Contact Information",
+        profil: "Professional Information",
+        ringkasan: "Currently studying at SMKN 3 Balikpapan, Computer & Network Engineering major.",
+        blog: "Blog / Value Addition",
+        terimakasih: "Thank You!",
+        pesan: "Thank you for viewing and valuing my first website."
+      },
+      id: {
+        nama: "Olifia Mathelda Helvena R",
+        umur: "Umur: 16 tahun",
+        ttl: "Tempat tgl lahir: Balikpapan, 26 Oktober 2008",
+        jk: "Jenis kelamin: Perempuan",
+        alamat: "Alamat: Perumahan Bukit Batakan Permai",
+        agama: "Agama: Katholik",
+        hobi: "Hobi: Memasak",
+        sekolah: "Sekolah: SMKN 3 Balikpapan, XII TKJ 2",
+        kontak: "Informasi Kontak",
+        profil: "Informasi Profesional",
+        ringkasan: "Sekarang bersekolah di SMKN 3 Balikpapan, jurusan Teknik Komputer Jaringan.",
+        blog: "Blog / Penambahan Nilai",
+        terimakasih: "Terima Kasih!",
+        pesan: "Terimakasih telah melihat dan memberikan nilai untuk web pertama saya."
+      }
+    };
+
+    let currentLang = "id";
+    function toggleLang(){
+      currentLang = currentLang === "id" ? "en" : "id";
+      document.querySelectorAll(".lang").forEach(el=>{
+        el.textContent = translations[currentLang][el.dataset.id];
+      });
+    }
+
+    // ADD BLOG
+    function addBlog(e){
+      e.preventDefault();
+      const input = document.getElementById("blog-input");
+      const text = input.value.trim();
+      if(text){
+        const div = document.createElement("div");
+        div.className = "bubble";
+        div.textContent = text;
+        document.getElementById("blog-list").appendChild(div);
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
